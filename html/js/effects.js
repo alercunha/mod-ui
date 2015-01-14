@@ -1,16 +1,16 @@
 /*
  * Copyright 2012-2013 AGR Audio, Industria e Comercio LTDA. <contato@portalmod.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -25,7 +25,7 @@
  * - searchbox: dom of search's input
  * - resultCanvas: dom div in which results will be shown
  * - categoryBrowse: dom div with category menu
- * - results: dictionary containing detailed data of all plugins 
+ * - results: dictionary containing detailed data of all plugins
  *            displayed
  */
 JqueryClass('effectBox', {
@@ -164,7 +164,7 @@ JqueryClass('effectBox', {
 	setCookie('searchMode', mode)
 
 	var term = searchbox.val()
-    
+
 	var query = { 'term': term }
 
 	if (mode == 'installed')
@@ -184,8 +184,8 @@ JqueryClass('effectBox', {
 		'data': query,
 		'success': function(plugins) {
 		    for (var i=0; i<plugins.length; i++) {
-			plugins[i].installedVersion = [ plugins[i].minorVersion, 
-							plugins[i].microVersion, 
+			plugins[i].installedVersion = [ plugins[i].minorVersion,
+							plugins[i].microVersion,
 							plugins[i].release || 0 ]
 			plugins[i].status = 'installed'
 		    }
@@ -228,7 +228,7 @@ JqueryClass('effectBox', {
 	    }
 	    for (url in results.local) {
 		plugin = results.local[url]
-		plugin.installedVersion = [ plugin.minorVersion, 
+		plugin.installedVersion = [ plugin.minorVersion,
 					    plugin.microVersion,
 					    plugin.release || 0
 					  ]
@@ -252,7 +252,7 @@ JqueryClass('effectBox', {
 		},
 		'dataType': 'json'
 	       })
-	
+
 	$.ajax({'method': 'GET',
 		'url': SITEURL+url,
 		'data': query,
@@ -272,7 +272,7 @@ JqueryClass('effectBox', {
 	var self = $(this)
 	var results = {}
 	var plugin, i;
-	
+
 	renderResults = function() {
 	    var plugins = []
 	    for (i in results.cloud) {
@@ -300,7 +300,7 @@ JqueryClass('effectBox', {
 		},
 		'dataType': 'json'
 	       })
-	
+
 	$.ajax({'method': 'GET',
 		'url': SITEURL+url,
 		'data': query,
@@ -381,7 +381,7 @@ JqueryClass('effectBox', {
 
 	var rendered = $(Mustache.render(TEMPLATES.plugin, plugin))
 
-	self.data('pedalboard').pedalboard('registerAvailablePlugin', rendered, plugin, 
+	self.data('pedalboard').pedalboard('registerAvailablePlugin', rendered, plugin,
 					   {
 					       distance: 5,
 					       delay: 100,
@@ -395,7 +395,7 @@ JqueryClass('effectBox', {
 						   self.window('unfade')
 					       }
 					   })
-	
+
 	rendered.click(function() {
 	    self.effectBox('showPluginInfo', index)
 	})
@@ -424,53 +424,7 @@ JqueryClass('effectBox', {
 	if (plugin.rating)
 	    $(info.find('.rating')[0]).addClass(['', 'one', 'two', 'three', 'four', 'five'][Math.round(plugin.rating)])
 
-	// The remove button will remove the plugin, close window and re-render the plugins
-	// without the removed one
-	if (plugin.installedVersion) {
-	    info.find('.js-remove').click(function() {
-		self.data('removePlugin')(plugin, function(ok) {
-		    if (ok) {
-			info.window('close')
-			delete plugins[index].installedVersion
-			plugins[index].status = 'blocked'
-			self.effectBox('showPlugins', plugins)
-		    }
-		})
-	    }).show()
-	} else {
-	    info.find('.js-installed-version').hide()	    
-	    info.find('.js-install').show().click(function() {
-		// Install plugin
-		self.data('installPlugin')(plugin, function(plugin) {
-		    if (plugin) {
-			plugins[index].installedVersion = plugins[index].latestVersion
-			if (info.is(':visible')) {
-			    info.remove()
-			    self.effectBox('showPluginInfo', index)
-			}
-		    }
-		})
-	    })
-	}
-
 	var checkVersion = function() {
-	    if (plugin.installedVersion && compareVersions(plugin.latestVersion, plugin.installedVersion) > 0) {
-		info.find('.js-upgrade').click(function() {
-		    // Do the upgrade
-		    self.data('upgradePlugin')(plugin, function(plugin) {
-			if (plugin) {
-			    plugin.installedVersion = plugins[index].latestVersion
-			    plugin.latestVersion = plugins[index].latestVersion
-			    plugins[index] = plugin
-			    if (info.is(':visible')) {
-				info.remove()
-				self.effectBox('showPluginInfo', index)
-			    }
-			}
-		    })
-		}).show()
-	    }
-
 	    if (compareVersions(plugin.latestVersion, plugin.installedVersion) == 0)
 		self.effectBox('getRating', plugin, info.find('.js-rate'))
 
@@ -522,8 +476,8 @@ JqueryClass('effectBox', {
 	    $.ajax({ url: SITEURL+'/effect/get/',
 		     data: { url: plugin.url },
 		     success: function(pluginData) {
-			 plugin.latestVersion = [ pluginData.minorVersion, 
-						  pluginData.microVersion, 
+			 plugin.latestVersion = [ pluginData.minorVersion,
+						  pluginData.microVersion,
 						  pluginData.release ]
 			 info.find('.js-latest-version span').html(version(plugin.latestVersion))
 			 checkVersion()
@@ -716,7 +670,7 @@ function version(v) {
 	return version
     return version + '-' + v[2]
 }
-    
-	
+
+
 
 
