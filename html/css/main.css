@@ -45,7 +45,7 @@ body {
     background-color:rgba(0,0,0,0.3);
     height:90%;
     margin:1px;
-}   
+}
 
 /* = MAIN MENU (FOOTER)
 ================================================ */
@@ -77,7 +77,7 @@ body {
 
 #main-menu > div.icon.selected {
     background:#000;
-} 
+}
 
 #main-menu > div.icon > a {
     display:block;
@@ -202,7 +202,7 @@ background: -ms-linear-gradient(left, #1e5799 0%,#2989d8 69%,#ff6430 78%,#ff6430
 background: linear-gradient(to right, #1e5799 0%,#2989d8 69%,#ff6430 78%,#ff6430 93%,#c40000 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#c40000',GradientType=1 ); /* IE6-9 */    -we
     -moz-border-radius: 4px;
-    border-radius: 0 !important; */
+    border-radius: 0 !important;
 }
     #main-menu #mod-cpu .progress .bar{
         float: right;
@@ -270,11 +270,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     border-left:9px solid transparent;
     border-right:9px solid transparent;
     border-top:9px solid white;
-    height:0; 
+    height:0;
     position:absolute;
     bottom:-18px;
     right:14px;
-    width:0; 
+    width:0;
 }
 
 
@@ -324,7 +324,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     height:26px;
 }
 #plugins-library .fold,
-#plugins-library .folded { 
+#plugins-library .folded {
     cursor:pointer;
     display:block;
     float:right;
@@ -522,7 +522,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     line-height:1.25;
 }
 /* Effect Rating */
-#plugins-library #plugins-list .plugins-wrapper .plugin .rating { 
+#plugins-library #plugins-list .plugins-wrapper .plugin .rating {
     background-image:url(../img/icn-rating.png);
     background-position:center top;
     background-repeat:no-repeat;

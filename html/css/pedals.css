@@ -1,6 +1,6 @@
 /* GENERAL PEDAL STYLE */
 
-.mod-pedal { 
+.mod-pedal {
     display:inline-block;
     padding:1px 15px 1px 15px;
     z-index:100;
@@ -100,11 +100,11 @@
     border-bottom:12px solid transparent;
     border-left:12px solid #000;
     border-top:12px solid transparent;
-    height:0; 
+    height:0;
     position:absolute;
     right:-12px;
     top:39px;
-    width:0; 
+    width:0;
 }
 
 .mod-input.expanded .mod-output-jack {
@@ -172,11 +172,11 @@
     border-bottom:12px solid transparent;
     border-right:12px solid #000;
     border-top:12px solid transparent;
-    height:0; 
+    height:0;
     position:absolute;
     left:-12px;
     top:39px;
-    width:0; 
+    width:0;
 }
 .mod-pedal .mod-output-jack,
 .mod-pedal .output-connected .mod-output-jack:hover {
@@ -202,8 +202,8 @@
     width:45px;
 }
 
-.mod-pedal .mod-pedal-output .mod-output { 
-    cursor:pointer; 
+.mod-pedal .mod-pedal-output .mod-output {
+    cursor:pointer;
     height:45px;
     margin-bottom:10px;
     position:relative;
@@ -223,7 +223,7 @@
 .mod-pedal .output-connecting {}
 .mod-pedal .output-connected .mod-output-jack { background:none; }
 
-    
+
 /* = PEDAL SETTINGS - Pop Up Window
 ================================================ */
 body > .mod-settings {
