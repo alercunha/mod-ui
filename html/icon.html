@@ -98,7 +98,13 @@
         top: 0px;
     }
     #pedalboard-dashboard .mod-pedal {
-        padding: 0;
+        /* FIXME this breaks a few modguis */
+        /*padding: 0;*/
+    }
+    #pedalboard-dashboard .mod-pedal .mod-pedal-input-image,
+    #pedalboard-dashboard .mod-pedal .mod-pedal-output-image {
+        display: none;
+        visibility: hidden;
     }
     /* TODO - make modgui non-draggable */
     </style>
