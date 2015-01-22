@@ -67,6 +67,7 @@
 
     <script type="text/javascript">
       {% autoescape None %}
+      var icongui = null
 
       $(document).ready(function() {
           var uri = window.location.hash.replace(/^#/, '')
@@ -75,8 +76,9 @@
               $.ajax({
                   url: '/effect/get/',
                   data: { url: uri },
-                  success: function(effect) {
-                      new GUI(effect).render(function(icon) {
+                  success: function(effect, options) {
+                      icongui = new GUI(effect)
+                      icongui.render(function(icon) {
                           $('#pedalboard-dashboard').append(icon)
                       })
                   },
