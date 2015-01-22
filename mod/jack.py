@@ -5,7 +5,7 @@ from mod.settings import DEV_HOST
 def change_jack_bufsize(size, callback):
     ioloop = IOLoop.instance()
 
-    if not command_exists('jack_bufsize') and DEV_HOST:
+    if size == 0 or not command_exists('jack_bufsize') and DEV_HOST:
         ioloop.add_callback(callback)
         return
 
