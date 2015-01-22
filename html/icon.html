@@ -79,6 +79,7 @@
                   success: function(effect, options) {
                       icongui = new GUI(effect)
                       icongui.render(function(icon) {
+                          icon.draggable('disable')
                           $('#pedalboard-dashboard').append(icon)
                       })
                   },
@@ -94,21 +95,20 @@
 
     <style type="text/css" media="screen">
     body {
-        background:transparent !important;
+        background: transparent !important;
+    }
+    #wrapper {
+        overflow: hidden;
     }
     #pedalboard-dashboard {
         top: 0px;
     }
-    #pedalboard-dashboard .mod-pedal {
-        /* FIXME this breaks a few modguis */
-        /*padding: 0;*/
-    }
+    #pedalboard-dashboard .mod-pedal .mod-drag-handle,
     #pedalboard-dashboard .mod-pedal .mod-pedal-input-image,
     #pedalboard-dashboard .mod-pedal .mod-pedal-output-image {
         display: none;
         visibility: hidden;
     }
-    /* TODO - make modgui non-draggable */
     </style>
 
 </head>
