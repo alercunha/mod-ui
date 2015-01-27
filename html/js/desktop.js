@@ -42,6 +42,7 @@ function Desktop(elements) {
 	bankSearchResult: $('<div>'),
 	socialTrigger: $('<div>'),
 	socialWindow: $('<div>'),
+        storeTrigger: $('<div>'),
 	loginWindow: $('<div>'),
 	registrationWindow: $('<div>'),
 	shareButton: $('<div>'),
@@ -257,6 +258,8 @@ function Desktop(elements) {
 						elements.pedalboardBoxTrigger)
     this.bankBox = self.makeBankBox(elements.bankBox,
 				    elements.bankBoxTrigger)
+    this.storeWindow = self.makeBankBox(elements.storeWindow,
+                                        elements.storeTrigger)
     /*
     this.userBox = elements.userBox.userBox()
     //this.xrun = elements.xRunNotifier.xRunNotifier()

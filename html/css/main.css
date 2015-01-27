@@ -140,6 +140,17 @@ body {
     display: none;
 }
 
+/* Banks */
+#main-menu #mod-store {
+    background-image:url(../img/menu-icons-sprite.png);
+    background-position:-135px bottom;
+    background-repeat:no-repeat;
+}
+#main-menu #mod-store:hover,
+#main-menu #mod-store.selected {
+    background-color:#000;
+    background-position:-135px top;
+}
 /* MOD - Settings */
 #main-menu #mod-settings {
     background-image:url(../img/menu-icons-sprite.png);
